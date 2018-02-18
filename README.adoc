@@ -1,0 +1,72 @@
+These samples are heavily based on https://github.com/pivotal-cf/identity-sample-apps
+
+
+== Start an OAuth2 authorization server
+
+Follow the details in http://www.java-allandsundry.com/2017/02/bootstrapping-oauth2-authorization.html[this blog post] to bring up an authorization server.
+
+Use the https://github.com/cloudfoundry/cf-uaac[uaac] command line utility to interact with UAA to populate the details of some of the actors involved:
+
+[source, bash]
+----
+# Target local UAA
+uaac target http://localhost:8080/uaa --skip-ssl-validation
+
+# Login as a canned client
+uaac token client get admin -s adminsecret
+
+# Add a client credential with client_id of client1 and client_secret of client1
+uaac client add client1 \
+   --name client1 \
+   --scope resource.read,resource.write,openid \
+   -s client1 \
+   --authorized_grant_types authorization_code,refresh_token,client_credentials,password \
+   --authorities uaa.resource \
+   --redirect_uri http://localhost:8888/**
+
+
+# Another client credential resource1/resource1
+uaac client add resource1 \
+  --name resource1 \
+  -s resource1 \
+  --authorized_grant_types client_credentials \
+  --authorities uaa.resource
+
+
+# Add a user called user1/user1
+uaac user add user1 -p user1 --emails user1@user1.com
+
+
+# Add two scopes resource.read, resource.write
+uaac group add resource.read
+uaac group add resource.write
+
+# Assign user1 both resource.read, resource.write scopes..
+uaac member add resource.read user1
+uaac member add resource.write user1
+
+----
+
+== Start the client
+
+
+[source, bash]
+----
+./gradlew -p applications/client clean bootRun
+----
+
+
+== Start the resource Server
+
+
+[source, bash]
+----
+./gradlew -p applications/resourceserver clean bootRun
+----
+
+
+== Test An Authorization Code flow
+
+image::https://raw.githubusercontent.com/bijukunjummen/oauth-uaa-sample/master/flows/Authorization_Code_Flow.png[Authorization Code Grant Type]
+
+Go to UI available at http://localhost:8888/ and click the UI to access a secure page. Login with user1/user1 when prompted.

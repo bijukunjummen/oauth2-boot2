@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/sitelayout">
+<head>
+    <title>Sample Client</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/application.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}"></script>
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-2">
+            &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <div sec:authorize="isAuthenticated()">
+                <label>Logged in user is </label> <span sec:authentication="name"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">
+            &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <a href="/secured/show_token">Access a secure page</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

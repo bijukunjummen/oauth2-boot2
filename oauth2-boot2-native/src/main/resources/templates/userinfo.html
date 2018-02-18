@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/sitelayout">
+<head>
+    <title>Spring Security - OAuth 2.0 User Info</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <h3>OAuth 2.0 User Info</h3>
+    <div class="row justify-content-end">
+        <div class="col-sm-4">
+            <div sec:authorize="isAuthenticated()">
+                <form class="form-inline" action="#" th:action="@{/logout}" method="post">
+                    <div class="form-group mb-2">
+                        <label class="col-form-label">User:  </label>
+                        <span sec:authentication="name"></span>  
+                    </div>
+                    <button type="submit" class="btn btn-light mb-2">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            &nbsp;
+        </div>
+        <div class="col-sm-5">
+            <h2>Beautified Access Token</h2>
+            <pre th:text="${formatted_access_token}"></pre>
+        </div>
+        <div class="col-sm-5">
+            <h2>Beautified Id Token</h2>
+            <pre th:text="${formatted_id_token}"></pre>
+        </div>
+
+        <div class="col-sm-1">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-1">
+            &nbsp;
+        </div>
+        <div class="col-sm-8">
+            <span style="font-weight:bold">User Attributes:</span>
+            <ul>
+                <li th:each="userAttribute : ${userAttributes}">
+                    <span style="font-weight:bold" th:text="${userAttribute.key}"></span>:
+                    <span th:text="${userAttribute.value}"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-1">
+            &nbsp;
+        </div>
+    </div>
+</div>
+</body>
+</html>

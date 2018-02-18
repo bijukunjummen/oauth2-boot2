@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/sitelayout">
+<head>
+    <title>Exception Details</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/application.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}"></script>
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+
+    <div class="row">
+        <div class="col-xs-2">
+            &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <h1>Exception Message: </h1>
+            <pre th:text="${exception_message}"></pre>
+        </div>
+        <div class="col-xs-2">
+            &nbsp;
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/sitelayout">
+<head>
+    <title>Spring Security - OAuth 2.0 Login</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <h1>OAuth 2.0 Login with Spring Security</h1>
+    <div>&nbsp;</div>
+    <div>
+        <a href="/secured/userinfo" th:href="@{/secured/userinfo}">Display User Info</a>
+    </div>
+</div>
+</body>
+</html>
