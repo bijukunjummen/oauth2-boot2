@@ -1,2 +1,4 @@
-include 'oauth2-boot2-legacy'
-include 'oauth2-boot2-native'
+rootProject.name="oauth2-boot2"
+
+include 'applications:oauth2-boot2-legacy'
+include 'applications:oauth2-boot2-native'

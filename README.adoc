@@ -47,21 +47,16 @@ uaac member add resource.write user1
 
 ----
 
-== Start the client
-
-
+== Start the legacy Spring Boot 2/Spring Security OAuth2 sample App
 [source, bash]
 ----
-./gradlew -p applications/client clean bootRun
+./gradlew -p applications/oauth2-boot2-legacy clean bootRun
 ----
 
-
-== Start the resource Server
-
-
+== Start the native Spring Boot2/Security OAuth2 sample App
 [source, bash]
 ----
-./gradlew -p applications/resourceserver clean bootRun
+./gradlew -p applications/oauth2-boot2-native clean bootRun
 ----
 
 

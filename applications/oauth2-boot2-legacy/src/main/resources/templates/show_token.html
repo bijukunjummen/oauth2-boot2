@@ -3,35 +3,35 @@
 <head>
     <title>Authcode sample</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}"/>
     <link rel="stylesheet" th:href="@{/css/application.css}"/>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.css}"/>
 
-    <script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
-    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}"></script>
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.13.0/dist/umd/popper.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
 </head>
 <body>
 <div class="container-fluid" layout:fragment="content">
 
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-sm-2">
             &nbsp;
         </div>
-        <div class="col-xs-8">
+        <div class="col-sm-8">
             <h2>Access Token of the Logged In User</h2>
             <pre th:text="${access_token}"></pre>
         </div>
 
-        <div class="col-xs-2">
+        <div class="col-sm-2">
             &nbsp;
         </div>
     </div>
 
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-sm-2">
             &nbsp;
         </div>
-        <div class="col-xs-8">
+        <div class="col-sm-8">
             <h2>Things to try:</h2>
             <ul>
                 <li>
@@ -42,7 +42,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-xs-2">
+        <div class="col-sm-2">
             &nbsp;
         </div>
     </div>

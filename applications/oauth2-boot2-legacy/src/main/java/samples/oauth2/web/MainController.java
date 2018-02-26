@@ -44,8 +44,8 @@ public class MainController {
 
     @RequestMapping("/secured/show_token")
     public String authCode(Model model, HttpServletRequest request) {
-        OAuth2Authentication auth = (OAuth2Authentication)SecurityContextHolder.getContext().getAuthentication();
-        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails)auth.getDetails();
+        OAuth2Authentication auth = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
+        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) auth.getDetails();
         String tokenValue = details.getTokenValue();
 
         if (tokenValue != null) {

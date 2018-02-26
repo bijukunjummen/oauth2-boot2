@@ -13,7 +13,6 @@ security:
       access-token-uri: ${ssoServiceUrl}/oauth/token
       user-authorization-uri: ${ssoServiceUrl}/oauth/authorize
     resource:
-      token-info-uri: http://localhost:8080/check_token
       jwt:
         key-uri: ${ssoServiceUrl}/token_key
       user-info-uri: ${ssoServiceUrl}/userinfo

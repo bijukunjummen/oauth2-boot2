@@ -30,6 +30,6 @@ class OAuth2SecurityConfig : WebSecurityConfigurerAdapter() {
                 .and()
                     .oauth2Login()
                     .loginPage("/custom_login")
-//        @formatter:on        
+//        @formatter:on
     }
 }

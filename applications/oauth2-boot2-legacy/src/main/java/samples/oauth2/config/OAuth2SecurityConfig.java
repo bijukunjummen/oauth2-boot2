@@ -9,21 +9,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableOAuth2Sso
 @Configuration
 public class OAuth2SecurityConfig extends WebSecurityConfigurerAdapter {
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		super.configure(web);
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        super.configure(web);
 
         //@formatter:off
-		web.ignoring()
+        web.ignoring()
                 .mvcMatchers("/favicon.ico", "/webjars/**", "/css/**");
-		//@formatter:on
-	}
+        //@formatter:on
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable();
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
 
-		//@formatter:off
+        //@formatter:off
         http.authorizeRequests()
                 .antMatchers("/secured/**")
                     .authenticated()
@@ -32,6 +32,6 @@ public class OAuth2SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                     .authenticated();
         //@formatter:on
-	}
+    }
 
 }
