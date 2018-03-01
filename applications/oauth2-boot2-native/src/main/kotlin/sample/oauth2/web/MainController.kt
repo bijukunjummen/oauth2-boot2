@@ -37,6 +37,7 @@ class MainController(val tokenBeautifier: TokenBeautifier, val authorizedClientS
         
         val userInfoEndpointUri = authorizedClient.clientRegistration
                 .providerDetails.userInfoEndpoint.uri
+        
         var userAttributes = WebClient.builder()
                 .filter(oauth2Credentials(authorizedClient))
                 .build()
