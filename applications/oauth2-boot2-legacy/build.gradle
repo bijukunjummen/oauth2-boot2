@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        kotlinVersion = '1.2.20'
-        springBootVersion = '2.0.0.RC1'
+        kotlinVersion = '1.2.21'
+        springBootVersion = '2.0.0.RELEASE'
     }
 
     repositories {
@@ -52,8 +52,8 @@ compileTestKotlin {
 
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-oauth2'
-    compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.BUILD-SNAPSHOT")
-    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
+    compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-devtools')
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -72,6 +72,6 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.M5"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.M7"
     }
 }
