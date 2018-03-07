@@ -18,7 +18,7 @@ uaac token client get admin -s adminsecret
 # Add a client credential with client_id of client1 and client_secret of client1
 uaac client add client1 \
    --name client1 \
-   --scope resource.read,resource.write,openid \
+   --scope resource.read,resource.write,openid,profile,email,address,phone \
    -s client1 \
    --authorized_grant_types authorization_code,refresh_token,client_credentials,password \
    --authorities uaa.resource \

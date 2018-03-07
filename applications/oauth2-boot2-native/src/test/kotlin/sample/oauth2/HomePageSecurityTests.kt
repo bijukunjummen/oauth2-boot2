@@ -23,7 +23,7 @@ class HomePageSecurityTests {
     fun `calling root uri should retrieve index page without needing security`() {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk)
-                .andExpect(content().string(containsString("OAuth 2.0 Login with Spring Security")))
+                .andExpect(content().string(containsString("Sample OAuth2")))
     }
     
     @Test

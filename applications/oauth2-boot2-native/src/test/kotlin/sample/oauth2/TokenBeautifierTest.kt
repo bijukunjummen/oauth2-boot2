@@ -13,7 +13,9 @@ class TokenBeautifierTest {
     @Test
     fun `should be able to beautify a jwt token`() {
         val t = TokenBeautifier(ObjectMapper())
-        val formatted = t.formatJwtToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ")
+        val formatted = t.formatJwtToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
+                "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9." +
+                "TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ")
      
         assertThat(jsonTester.from(formatted)).isEqualToJson("""
            | {
