@@ -28,11 +28,17 @@
             &nbsp;
         </div>
         <div class="col-sm-5">
-            <h2>Beautified Access Token</h2>
+            <h4>Raw Access Token</h4>
+            <textarea th:text="${raw_access_token}" rows="10" cols="70"></textarea>
+            
+            <h4>Beautified Access Token</h4>
             <pre th:text="${formatted_access_token}"></pre>
         </div>
         <div class="col-sm-5">
-            <h2>Beautified Id Token</h2>
+            <h4>Raw ID Token</h4>
+            <textarea th:text="${raw_id_token}" rows="10" cols="70"></textarea>
+            
+            <h4>Beautified Id Token</h4>
             <pre th:text="${formatted_id_token}"></pre>
         </div>
 
@@ -52,6 +58,7 @@
                     <span th:text="${userAttribute.value}"></span>
                 </li>
             </ul>
+            
         </div>
         <div class="col-sm-1">
             &nbsp;
