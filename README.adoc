@@ -1,9 +1,6 @@
-These samples are heavily based on https://github.com/pivotal-cf/identity-sample-apps
-
+The repository accompanies the blog post http://www.java-allandsundry.com/2018/03/spring-boot-2-native-approach-to-sso.html[here]
 
 == Start an OAuth2 authorization server
-
-Follow the details in http://www.java-allandsundry.com/2017/02/bootstrapping-oauth2-authorization.html[this blog post] to bring up an authorization server.
 
 Use the https://github.com/cloudfoundry/cf-uaac[uaac] command line utility to interact with UAA to populate the details of some of the actors involved:
 
