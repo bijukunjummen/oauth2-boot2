@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{app.name}">OAuth Sample</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/application.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.13.0/dist/umd/popper.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/}">OAuth Sample</a>
+</nav>
+<div class="container-fluid">
+    <div layout:fragment="content">
+        <h1>Static content for prototyping purposes only</h1>
+        <p>
+            This is the layout of the site. The actual content will come from individual views making use of this layout
+        </p>
+    </div>
+</div>
+<div id="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <hr/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

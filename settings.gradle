@@ -2,3 +2,4 @@ rootProject.name="oauth2-boot2"
 
 include 'applications:oauth2-boot2-legacy'
 include 'applications:oauth2-boot2-native'
+include 'applications:oauth2-boot2-webflux'

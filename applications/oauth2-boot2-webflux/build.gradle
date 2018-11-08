@@ -55,7 +55,7 @@ dependencies {
     compile "org.springframework.security:spring-security-oauth2-jose"
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
-    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-webflux'
     compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
@@ -69,4 +69,10 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile "org.springframework.security:spring-security-test"
     testCompile 'net.sourceforge.htmlunit:htmlunit'
+}
+
+task showConfigurations  {
+    doLast {
+        configurations.all { conf -> println(conf) }
+    }
 }
