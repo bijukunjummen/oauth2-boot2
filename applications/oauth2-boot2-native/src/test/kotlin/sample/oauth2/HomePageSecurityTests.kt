@@ -1,6 +1,7 @@
 package sample.oauth2
 
-import org.hamcrest.CoreMatchers.*
+import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.CoreMatchers.containsString
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -8,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @RunWith(SpringRunner::class)
@@ -23,7 +24,7 @@ class HomePageSecurityTests {
     fun `calling root uri should retrieve index page without needing security`() {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk)
-                .andExpect(content().string(containsString("Sample OAuth2")))
+                .andExpect(content().string(containsString("OAuth 2.0 Spring Security Native")))
     }
     
     @Test
