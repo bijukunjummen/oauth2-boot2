@@ -1,11 +1,10 @@
-The repository accompanies the blog post http://www.java-allandsundry.com/2018/03/spring-boot-2-native-approach-to-sso.html[here]
+The repository accompanies the blog post [here](http://www.java-allandsundry.com/2018/03/spring-boot-2-native-approach-to-sso.html)
 
-== Start an OAuth2 authorization server
+## Start an OAuth2 authorization server
 
-Use the https://github.com/cloudfoundry/cf-uaac[uaac] command line utility to interact with UAA to populate the details of some of the actors involved:
+Use the [uaac](https://github.com/cloudfoundry/cf-uaac) command line utility to interact with UAA to populate the details of some of the actors involved:
 
-[source, bash]
-----
+```sh
 # Target local UAA
 uaac target http://localhost:8080/uaa --skip-ssl-validation
 
@@ -30,41 +29,45 @@ uaac client add resource1 \
   --authorities uaa.resource
 
 
-# Add a user called user1/user1
+# Add a few users
 uaac user add user1 -p user1 --emails user1@user1.com
+uaac user add user2 -p user2 --emails user2@user2.com
 
 
 # Add two scopes resource.read, resource.write
 uaac group add resource.read
 uaac group add resource.write
 
-# Assign user1 both resource.read, resource.write scopes..
+# Assign user1 both resource.read, resource.write scope:
 uaac member add resource.read user1
 uaac member add resource.write user1
 
-----
 
-== Start the legacy Spring Boot 2/Spring Security OAuth2 sample App
-[source, bash]
-----
+# Assign user2 only resource.read scope:
+uaac member add resource.read user1
+uaac member add resource.write user1
+
+
+```
+
+## Start the legacy Spring Boot 2/Spring Security OAuth2 sample App
+```sh
 ./gradlew -p applications/oauth2-boot2-legacy clean bootRun
-----
+```
 
-== Start the native Spring Boot2/Security OAuth2 sample App
-[source, bash]
-----
+## Start the native Spring Boot2/Security OAuth2 sample App
+```sh
 ./gradlew -p applications/oauth2-boot2-native clean bootRun
-----
+```
 
-== Start the native Spring Boot 2 With Webflux/Security OAuth2 sample App
-[source, bash]
-----
+## Start the native Spring Boot 2 With Webflux/Security OAuth2 sample App
+```sh
 ./gradlew -p applications/oauth2-boot2-webflux clean bootRun
-----
+```
 
 
-== Test An Authorization Code flow
+## Test an Authorization Code flow
 
 image::https://raw.githubusercontent.com/bijukunjummen/oauth-uaa-sample/master/flows/Authorization_Code_Flow.png[Authorization Code Grant Type]
 
-Go to UI available at http://localhost:8888/ and click the UI to access a secure page. Login with user1/user1 when prompted.
+Go to UI available at http://localhost:8888/ and click the UI to access a secure page. Login with user1/user1 OR user2/user2 when prompted.

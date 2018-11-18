@@ -1,4 +1,5 @@
-ssoServiceUrl: http://localhost:8080/uaa
+uaa-base-url: http://localhost:8080/uaa
+
 server:
   port: 9999
 
@@ -7,7 +8,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: ${ssoServiceUrl}/token_keys
+          jwk-set-uri: ${uaa-base-url}/token_keys
 
 
 

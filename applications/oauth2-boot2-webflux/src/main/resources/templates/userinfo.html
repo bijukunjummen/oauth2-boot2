@@ -46,11 +46,11 @@
             &nbsp;
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-sm-1">
             &nbsp;
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-5">
             <span style="font-weight:bold">User Attributes:</span>
             <ul>
                 <li th:each="userAttribute : ${userAttributes}">
@@ -58,11 +58,16 @@
                     <span th:text="${userAttribute.value}"></span>
                 </li>
             </ul>
-            
+
         </div>
-        <div class="col-sm-1">
-            &nbsp;
+        <div class="col-sm-5">
+            <h4>Upstream flows</h4>
+            Call an upstream service requiring a "resource.read" scope: <a role="button" th:href="@{/upstream/read}" class="btn btn-link btn-sm">Go</a>
+            <br/>
+            Call an upstream service requiring a "resource.write" scope: <a role="button" th:href="@{/upstream/write}" class="btn btn-link btn-sm">Go</a>
+
         </div>
+
     </div>
 </div>
 </body>
